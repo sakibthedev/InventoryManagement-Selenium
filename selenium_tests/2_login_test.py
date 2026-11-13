@@ -1,0 +1,27 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# Replace with your deployed Vercel or GitHub Pages base URL (without trailing slash)
+BASE_URL = "https://your-deployed-app-url.vercel.app"
+
+driver = webdriver.Chrome()
+driver.get(f"{BASE_URL}/index.html")
+
+try:
+    driver.find_element(By.ID, "login-email").send_keys("admin@test.com")
+    driver.find_element(By.ID, "login-password").send_keys("admin123")
+    driver.find_element(By.ID, "login-submit-btn").click()
+
+    # Assert URL changed to dashboard.html
+    expected_url = f"{BASE_URL}/dashboard.html"
+    WebDriverWait(driver, 5).until(EC.url_to_be(expected_url))
+    assert driver.current_url == expected_url
+    print("Login Test Passed! User successfully reached dashboard.html.")
+
+except Exception as e:
+    print(f"Login Test Failed: {e}")
+
+finally:
+    driver.quit()
