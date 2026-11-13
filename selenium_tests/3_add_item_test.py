@@ -3,19 +3,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-BASE_URL = "https://your-deployed-app-url.vercel.app"
+BASE_URL = "https://sakibthedev.github.io/InventoryManagement-Selenium/"
 
 driver = webdriver.Chrome()
 driver.get(f"{BASE_URL}/index.html")
 
 try:
-    # Login
+    
     driver.find_element(By.ID, "login-email").send_keys("admin@test.com")
     driver.find_element(By.ID, "login-password").send_keys("admin123")
     driver.find_element(By.ID, "login-submit-btn").click()
     WebDriverWait(driver, 5).until(EC.url_contains("dashboard.html"))
 
-    # Add Item
+   
     driver.find_element(By.ID, "item-name").send_keys("Wireless Mouse")
     driver.find_element(By.ID, "item-category").send_keys("Electronics")
     driver.find_element(By.ID, "item-quantity").send_keys("10")

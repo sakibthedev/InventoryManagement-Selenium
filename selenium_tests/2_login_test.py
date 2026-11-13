@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Replace with your deployed Vercel or GitHub Pages base URL (without trailing slash)
-BASE_URL = "https://your-deployed-app-url.vercel.app"
+
+BASE_URL = "https://sakibthedev.github.io/InventoryManagement-Selenium/"
 
 driver = webdriver.Chrome()
 driver.get(f"{BASE_URL}/index.html")
@@ -16,7 +16,7 @@ try:
 
     # Assert URL changed to dashboard.html
     expected_url = f"{BASE_URL}/dashboard.html"
-    WebDriverWait(driver, 5).until(EC.url_to_be(expected_url))
+    WebDriverWait(driver, 10).until(EC.url_to_be(expected_url))
     assert driver.current_url == expected_url
     print("Login Test Passed! User successfully reached dashboard.html.")
 

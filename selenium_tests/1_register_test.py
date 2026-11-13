@@ -3,10 +3,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Replace with your deployed Vercel or GitHub Pages base URL (without trailing slash)
-BASE_URL = "https://your-deployed-app-url.vercel.app"
+BASE_URL = "https://sakibthedev.github.io/InventoryManagement-Selenium/"
 
 driver = webdriver.Chrome()
+
 driver.get(f"{BASE_URL}/register.html")
 
 try:
